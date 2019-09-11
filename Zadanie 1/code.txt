@@ -1,0 +1,40 @@
+public class Nationality {
+    public String country;
+    public String name;
+    public String greeting;
+    public void introduction(){
+        System.out.println("My name is " + name + " and i am from " + country );
+    }
+
+    public void getGreeting(){}
+
+    public void someMethodFromParent(){
+        System.out.println("I live in Moscow");
+    }
+
+}
+
+
+public class Russian extends Nationality {
+
+    @Override
+    public void getGreeting(){ //пример полиморфизма - использование объектов с одинаковым
+        //интерфейсом без информации о конкретном типе этого объекта.
+        System.out.println("Privet");}
+
+    private void RussianOwnMethod(){ //пример инкапсул€ции - сокрытие реализации
+        //и предоставление доступа к коду не напр€мую, а через определенные методы.
+        System.out.println("I'm eating blini");
+    }
+
+    public static void main(String[] args){
+        Russian russian = new Russian();
+        russian.name = "George";
+        russian.country = "Russia";
+        russian.introduction();
+        russian.getGreeting();
+        russian.RussianOwnMethod();
+        russian.someMethodFromParent();
+    }
+
+}
